@@ -1,0 +1,90 @@
+{
+  "_comment": "Deterministic red-flag rules. If ANY rule matches the symptom text, the engine forces a SEE-A-DOCTOR signal regardless of LLM output. Patterns are lowercase substrings/keywords matched in English and Hindi (Romanised + Devanagari). This is a safety guardrail, not a diagnosis.",
+  "rules": [
+    {
+      "id": "cardiac_chest_pain",
+      "label": "Chest pain / pressure (possible cardiac event)",
+      "advice": "Possible heart emergency. Call emergency services (112 / 108) or go to the nearest hospital immediately.",
+      "keywords": [
+        "chest pain", "chest pressure", "pain in chest", "tight chest", "chest tightness",
+        "pain in left arm", "crushing chest", "seene me dard", "seene mein dard",
+        "chhati me dard", "chhaati dard", "सीने में दर्द", "छाती में दर्द"
+      ]
+    },
+    {
+      "id": "breathing_difficulty",
+      "label": "Severe breathing difficulty",
+      "advice": "Difficulty breathing can be life-threatening. Seek emergency care now (112 / 108).",
+      "keywords": [
+        "can't breathe", "cannot breathe", "cant breathe", "difficulty breathing",
+        "shortness of breath", "trouble breathing", "gasping", "choking", "blue lips",
+        "saans nahi", "saans lene me dikkat", "dam ghutna", "साँस नहीं", "सांस लेने में"
+      ]
+    },
+    {
+      "id": "stroke_signs",
+      "label": "Stroke warning signs (FAST)",
+      "advice": "Possible stroke. Note the time symptoms started and reach a hospital immediately (112 / 108).",
+      "keywords": [
+        "face drooping", "slurred speech", "can't speak", "sudden weakness",
+        "one side weak", "numb on one side", "sudden confusion", "loss of vision",
+        "lakwa", "लकवा", "muh tedha", "मुँह टेढ़ा"
+      ]
+    },
+    {
+      "id": "severe_bleeding",
+      "label": "Severe / uncontrolled bleeding",
+      "advice": "Uncontrolled bleeding is an emergency. Apply firm pressure and reach a hospital now (112 / 108).",
+      "keywords": [
+        "severe bleeding", "heavy bleeding", "won't stop bleeding", "bleeding heavily",
+        "vomiting blood", "blood in vomit", "coughing blood", "blood in stool",
+        "khoon", "khoon band nahi", "खून बंद नहीं", "उल्टी में खून"
+      ]
+    },
+    {
+      "id": "infant_high_fever",
+      "label": "High fever in an infant / very young child",
+      "advice": "Fever in a baby under 3 months, or a very high fever in a young child, needs a doctor urgently.",
+      "keywords": [
+        "infant fever", "baby high fever", "newborn fever", "fever in baby",
+        "3 month fever", "fever in infant", "बच्चे को तेज बुखार", "shishu bukhar"
+      ]
+    },
+    {
+      "id": "unconscious_seizure",
+      "label": "Unconsciousness / seizure",
+      "advice": "Loss of consciousness or a seizure needs emergency care immediately (112 / 108).",
+      "keywords": [
+        "unconscious", "fainted", "passed out", "not waking", "seizure", "convulsion",
+        "fits", "behoshi", "बेहोशी", "daura", "दौरा"
+      ]
+    },
+    {
+      "id": "suicidal_self_harm",
+      "label": "Self-harm / suicidal thoughts",
+      "advice": "Please reach out now. In India call Tele-MANAS 14416 / KIRAN 1800-599-0019. You are not alone.",
+      "keywords": [
+        "suicide", "kill myself", "end my life", "self harm", "hurt myself",
+        "want to die", "aatmahatya", "आत्महत्या", "marna chahta"
+      ]
+    },
+    {
+      "id": "severe_dehydration",
+      "label": "Severe dehydration signs",
+      "advice": "Signs of severe dehydration (no urine, sunken eyes, extreme drowsiness) need urgent medical care.",
+      "keywords": [
+        "no urine", "not urinating", "sunken eyes", "extremely drowsy", "very lethargic baby",
+        "cannot keep fluids", "severe dehydration"
+      ]
+    },
+    {
+      "id": "pregnancy_warning",
+      "label": "Pregnancy warning sign",
+      "advice": "Bleeding, severe abdominal pain, or reduced baby movement in pregnancy needs a doctor urgently.",
+      "keywords": [
+        "pregnant bleeding", "bleeding while pregnant", "pregnancy pain", "no baby movement",
+        "garbhvati", "गर्भवती रक्तस्राव"
+      ]
+    }
+  ]
+}
