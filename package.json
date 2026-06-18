@@ -1,0 +1,23 @@
+{
+  "name": "sahayak",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sahayak — an AI health-triage assistant for India's pharmacy counters. Triages, never prescribes.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "demo": "npm run install:all && npm run dev",
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "start": "npm --prefix server install --omit=dev && cross-env SERVE_CLIENT=true npm --prefix server start",
+    "deploy:build": "npm run install:all && npm run build",
+    "test": "npm --prefix server test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3"
+  }
+}
