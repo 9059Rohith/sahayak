@@ -1,0 +1,49 @@
+{
+  "_comment": "Seed demo scenarios. The frontend loads these as one-tap demo buttons so judges can reproduce the four required flows instantly. Each scenario lists the spoken input and the expected triage signal.",
+  "scenarios": [
+    {
+      "id": "fever",
+      "title": "Common fever (adult)",
+      "lang": "en",
+      "input": "I have had a mild fever and body ache since yesterday, no other problems.",
+      "currentMeds": [],
+      "allergies": [],
+      "age": 30,
+      "expectedSignal": "CAUTION",
+      "note": "Expect SAFE/CAUTION OTC guidance: rest, fluids, paracetamol-class antipyretic, review if fever lasts >3 days."
+    },
+    {
+      "id": "child_cold",
+      "title": "Child's cold",
+      "lang": "en",
+      "input": "My 4 year old child has a runny nose and mild cough for two days.",
+      "currentMeds": [],
+      "allergies": [],
+      "age": 4,
+      "expectedSignal": "CAUTION",
+      "note": "Expect age-aware CAUTION: saline drops, fluids, avoid adult cough syrups; see a doctor if it persists or fever appears."
+    },
+    {
+      "id": "stomach_pain",
+      "title": "Stomach pain",
+      "lang": "en",
+      "input": "I have stomach pain and some gas since this morning after eating outside.",
+      "currentMeds": [],
+      "allergies": [],
+      "age": 28,
+      "expectedSignal": "CAUTION",
+      "note": "Expect follow-up questions (location, fever, blood, duration) and conditional routing."
+    },
+    {
+      "id": "chest_pain",
+      "title": "Chest pain (RED FLAG)",
+      "lang": "en",
+      "input": "I have severe chest pain and pain going down my left arm, and I feel sweaty.",
+      "currentMeds": [],
+      "allergies": [],
+      "age": 55,
+      "expectedSignal": "SEE_A_DOCTOR",
+      "note": "Must instantly force SEE-A-DOCTOR via the deterministic red-flag rule, regardless of the LLM."
+    }
+  ]
+}
