@@ -80,8 +80,11 @@ export default function App() {
     setAllergies(s.allergies || []);
   };
 
+  // Urdu renders right-to-left; all other supported languages are LTR.
+  const dir = lang === "ur" ? "rtl" : "ltr";
+
   return (
-    <div className="mx-auto min-h-screen max-w-3xl px-4 py-6">
+    <div dir={dir} className="mx-auto min-h-screen max-w-3xl px-4 py-6">
       {/* Header */}
       <header className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>

@@ -23,7 +23,7 @@ In India, the neighbourhood chemist is the *de facto* first doctor for hundreds 
 
 ## What it does
 
-- 🎙️ **Voice-first, vernacular** — speak symptoms in **12 Indian languages** (English, हिन्दी, বাংলা, தமிழ், తెలుగు, मराठी, ગુજરાતી, ಕನ್ನಡ, മലയാളം, ਪੰਜਾਬੀ, ଓଡ଼ିଆ, اردو) via the Web Speech API, with a typed fallback. The six largest have fully localised UI; all 12 receive native-language triage.
+- 🎙️ **Voice-first, vernacular** — speak symptoms in **12 fully-localised Indian languages** (English, हिन्दी, বাংলা, தமிழ், తెలుగు, मराठी, ગુજરાતી, ಕನ್ನಡ, മലയാളം, ਪੰਜਾਬੀ, ଓଡ଼ିଆ, اردو — incl. RTL) via the Web Speech API, with a typed fallback. Both the UI and the triage advice appear in the chosen language.
 - 🚦 **One clear signal** — SAFE / CAUTION / SEE-A-DOCTOR, colour-coded and read aloud.
 - 🛑 **Deterministic red-flag engine** — chest pain, breathing difficulty, stroke signs, severe bleeding, infant fever, etc. force *SEE-A-DOCTOR* **in code**, so the LLM can never miss or be tricked past an emergency.
 - 💊 **Drug-interaction + allergy checker** — runs in code against a 50-drug Indian OTC dataset; conflicts force CAUTION/escalate.
