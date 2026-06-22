@@ -1,0 +1,17 @@
+**/node_modules
+**/dist
+.git
+.env
+**/.env
+!**/.env.example
+*.log
+npm-debug.log*
+coverage
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+README.md
+ARCHITECTURE.md
+SECURITY.md
+PITCH_DECK.md
