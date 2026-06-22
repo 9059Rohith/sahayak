@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSpeech } from "./hooks/useSpeech.js";
-import { STRINGS } from "./lib/strings.js";
+import { LANGUAGES, stringsFor } from "./lib/strings.js";
 import { getHealth, getScenarios, postTriage } from "./lib/api.js";
 import ChipInput from "./components/ChipInput.jsx";
 import ResultCard from "./components/ResultCard.jsx";
 
 export default function App() {
   const [lang, setLang] = useState("en");
-  const t = STRINGS[lang];
+  const t = stringsFor(lang);
 
   // Form state — kept in memory only, cleared on reset (no persistence).
   const [symptoms, setSymptoms] = useState("");
@@ -237,19 +237,22 @@ export default function App() {
 }
 
 function LangToggle({ lang, setLang }) {
+  // A dropdown scales cleanly to the full set of supported Indian languages.
   return (
-    <div className="flex overflow-hidden rounded-lg border border-slate-300">
-      {["en", "hi"].map((l) => (
-        <button
-          key={l}
-          onClick={() => setLang(l)}
-          className={`px-3 py-1.5 text-sm font-medium ${
-            lang === l ? "bg-brand text-white" : "bg-white text-slate-600 hover:bg-slate-100"
-          }`}
-        >
-          {l === "en" ? "EN" : "हिं"}
-        </button>
-      ))}
-    </div>
+    <label className="flex items-center gap-2 text-sm text-slate-600">
+      <span aria-hidden>🌐</span>
+      <select
+        value={lang}
+        onChange={(e) => setLang(e.target.value)}
+        aria-label="Language"
+        className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+      >
+        {LANGUAGES.map((l) => (
+          <option key={l.code} value={l.code}>
+            {l.label}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }

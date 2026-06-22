@@ -65,7 +65,7 @@ Gemini / Imagen to generate the slide visual. A shared **Visual Style Guide**
 ## Slide 4 — The Solution
 
 ### Sahayak: speak your symptoms, get a safe signal
-- **Voice-first & vernacular** — speak in **English or Hindi** (structured to add Tamil, Telugu, Bengali, Marathi). Typed fallback for any device.
+- **Voice-first & vernacular** — speak in **12 Indian languages** (Hindi, Bengali, Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Odia, Urdu + English). Typed fallback for any device.
 - **Structured triage** — asks the right follow-up questions, then returns **one unambiguous signal: SAFE · CAUTION · SEE-A-DOCTOR**, read aloud and colour-coded.
 - **Triages, never prescribes** — gives general OTC self-care categories or a doctor referral; **no drug names, no doses, ever**.
 - **Acts as a real co-pilot** — checks drug interactions & allergies live, and prints a clear summary the patient can carry.
@@ -177,7 +177,7 @@ Gemini / Imagen to generate the slide visual. A shared **Visual Style Guide**
 ## Slide 11 — Roadmap
 
 ### From prototype to public-health infrastructure
-- **Q1 — More languages:** Tamil, Telugu, Bengali, Marathi (architecture is already i18n-ready).
+- **Q1 — Deepen language coverage:** full UI localisation for all 12 supported languages (6 done) + dialect/accent tuning for voice. (Architecture is fully i18n-ready — adding a language is one config entry.)
 - **Q2 — Real drug DB:** integrate a maintained national formulary / interaction database, replacing the demo dataset.
 - **Q3 — Pharmacist dashboard:** consent-gated session history, escalation analytics, and a counter-level safety audit log.
 - **Q4 — Regulatory pilot:** clinical validation with partner hospitals and a path toward CDSCO / medical-software compliance.

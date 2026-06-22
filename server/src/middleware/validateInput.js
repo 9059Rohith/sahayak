@@ -16,6 +16,11 @@ const LIMITS = Object.freeze({
   age: 120,
 });
 
+// Allowed triage-response languages (kept in sync with the client + prompt).
+const SUPPORTED_LANGUAGES = new Set([
+  "en", "hi", "bn", "ta", "te", "mr", "gu", "kn", "ml", "pa", "or", "ur",
+]);
+
 // ASCII control characters (0x00-0x1F and 0x7F). Constructed from a string of
 // hex escapes so this source file contains only printable characters.
 const CONTROL_CHARS = new RegExp("[\\x00-\\x1F\\x7F]", "g");
@@ -62,7 +67,7 @@ export function validateTriageInput(req, res, next) {
     });
   }
 
-  const language = body.language === "hi" ? "hi" : "en";
+  const language = SUPPORTED_LANGUAGES.has(body.language) ? body.language : "en";
 
   req.clean = {
     symptoms,

@@ -13,7 +13,12 @@ export function useSpeech(lang) {
   const [interim, setInterim] = useState("");
   const recognitionRef = useRef(null);
 
-  const localeFor = (l) => (l === "hi" ? "hi-IN" : "en-IN");
+  // Map our language codes to BCP-47 locales for the Web Speech API.
+  const LOCALES = {
+    en: "en-IN", hi: "hi-IN", bn: "bn-IN", ta: "ta-IN", te: "te-IN", mr: "mr-IN",
+    gu: "gu-IN", kn: "kn-IN", ml: "ml-IN", pa: "pa-IN", or: "or-IN", ur: "ur-IN",
+  };
+  const localeFor = (l) => LOCALES[l] || "en-IN";
 
   const sttSupported =
     typeof window !== "undefined" &&

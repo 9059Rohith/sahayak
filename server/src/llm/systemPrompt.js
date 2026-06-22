@@ -20,11 +20,26 @@ Respond ONLY with a single minified JSON object, no markdown, matching:
 }
 `.trim();
 
+// Supported triage-response languages. The LLM replies in the patient's
+// language; the deterministic safety rails run regardless of language.
+export const LANGUAGE_NAMES = Object.freeze({
+  en: "English",
+  hi: "Hindi (Devanagari)",
+  bn: "Bengali",
+  ta: "Tamil",
+  te: "Telugu",
+  mr: "Marathi",
+  gu: "Gujarati",
+  kn: "Kannada",
+  ml: "Malayalam",
+  pa: "Punjabi (Gurmukhi)",
+  or: "Odia",
+  ur: "Urdu",
+});
+
 export function buildSystemPrompt({ language = "en" } = {}) {
-  const langLine =
-    language === "hi"
-      ? "Reply in simple Hindi (Devanagari). Keep it short and clear."
-      : "Reply in simple English. Keep it short and clear.";
+  const langName = LANGUAGE_NAMES[language] || LANGUAGE_NAMES.en;
+  const langLine = `Reply in simple ${langName}. Keep it short and clear, in that language's native script.`;
 
   return `
 You are "Sahayak", a health-TRIAGE assistant used at Indian pharmacy counters by a
