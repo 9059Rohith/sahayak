@@ -1,0 +1,22 @@
+# Render Blueprint — reproducible, one-click deploy for judges.
+# In Render: New + → "Blueprint" → point at this repo. Then set GROQ_API_KEY.
+services:
+  - type: web
+    name: sahayak
+    runtime: node
+    plan: free
+    autoDeploy: true # redeploy automatically on every push to the default branch
+    buildCommand: npm run deploy:build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false # secret — set in the Render dashboard, never committed
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: SERVE_CLIENT
+        value: "true"
+      - key: TRUST_PROXY
+        value: "1"
+      - key: NODE_ENV
+        value: production

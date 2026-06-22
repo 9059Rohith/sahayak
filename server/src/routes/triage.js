@@ -20,6 +20,10 @@ router.get("/health", (_req, res) => {
     model: getModelName(),
     knownDrugs: listKnownDrugCount(),
     redFlagRules: listRedFlagRules().length,
+    languages: 12,
+    // Deployed git commit (Render injects RENDER_GIT_COMMIT) — lets us verify
+    // which build is actually live.
+    commit: (process.env.RENDER_GIT_COMMIT || "local").slice(0, 7),
   });
 });
 
